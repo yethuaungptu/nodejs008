@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Post Add</title>
+  </head>
+  <body>
+    <h1>Post Add</h1>
+    <form class="" action="/posts/postadd" method="post" id="myForm">
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" value="" required><p>
+      <label for="content">Content</label>
+      <input type="text" name="content" id="content" value="" required><p>
+      <label for="author">Author</label>
+      <select class="" name="author" id="author">
+        <% for(var i = 0; i < users.length; i++){%>
+          <option value="<%= users[i]._id %>"><%= users[i].name %></option>
+        <%}%>
+      </select> <p>
+      <input type="submit" name="" value="Submit">
+    </form>
+  </body>
+  
+</html>
