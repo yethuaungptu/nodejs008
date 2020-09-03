@@ -10,6 +10,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var postsRouter = require('./routes/posts');
 
+var apiUsersRouter = require('./api/routes/users');
+var apiAdminsRouter = require('./api/routes/admins');
+
 var app = express();
 
 // view engine setup
@@ -34,6 +37,8 @@ mongoose.connect('mongodb+srv://yethuaung:yethu123@nodejs008-qcvgr.mongodb.net/t
 var db = mongoose.connection;
 db.on('error',console.error.bind(console,'Mongodb connection error!!!!'));
 
+app.use('/api/users',apiUsersRouter);
+app.use('/api/',apiAdminsRouter);
 app.use('/', indexRouter);
 app.use(function (req,res,next) {
   if(req.session.user){
